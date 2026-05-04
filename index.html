@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ProTint Colour Mix — Mobile paint mixing and colour matching for auto body shops, panel beaters and fleet operators in Rosslyn, Soshanguve and Pretoria North. We come to you.">
+  <meta name="description" content="ProTint Colour Mix — Mobile paint mixing, colour matching, residential & home painting, Gamazine textured ceilings, and paint supplies for hardware stores in Rosslyn, Soshanguve and Pretoria North.">
   <meta name="theme-color" content="#0A0A0F">
   <meta property="og:title" content="ProTint Colour Mix — The Art of Perfect Colour">
   <meta property="og:description" content="Mobile paint mixing & colour matching. We come to your workshop. Same-day response, 100% colour match guarantee.">
@@ -41,6 +41,21 @@
     h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+
+    /* ─── PAINT CANVAS (mouse spill overlay) ─── */
+    #paint-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9998;
+    }
+    .paint-particle {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      will-change: transform, opacity;
+    }
 
     /* ─── LOADER ─────────────────────────────── */
     #loader {
@@ -511,7 +526,7 @@
       <span class="line"><span class="word">Perfect <span class="hero-accent">Colour.</span></span></span>
       <span class="line"><span class="word">On Site.</span></span>
     </h1>
-    <p class="hero-sub">Mobile paint mixing & colour matching for auto body shops, panel beaters and fleet operators. We come to your workshop — Rosslyn, Soshanguve, Pretoria North.</p>
+    <p class="hero-sub">Automotive paint mixing, residential painting, Gamazine textured ceilings, and paint supplies for hardware stores. We come to you — Rosslyn, Soshanguve, Pretoria North.</p>
     <div class="hero-cta-row">
       <a href="#contact" class="btn-primary">Get a Perfect Match →</a>
       <a href="#services" class="btn-secondary">Our Services</a>
@@ -653,6 +668,67 @@
         </div>
         <h3>Same-Day Service</h3>
         <p>Call before noon, colour ready today. Our mobile unit is staffed and ready — fast response across Pretoria North.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-paintcan">
+          <svg viewBox="0 0 60 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="20" width="44" height="50" rx="4" fill="#9B59B6" opacity="0.2"/>
+            <rect x="8" y="20" width="44" height="50" rx="4" stroke="#9B59B6" stroke-width="2"/>
+            <rect x="14" y="8" width="32" height="14" rx="3" fill="#9B59B6" opacity="0.4"/>
+            <rect x="14" y="8" width="32" height="14" rx="3" stroke="#9B59B6" stroke-width="2"/>
+            <path d="M20 8 L20 0 L40 0 L40 8" stroke="#9B59B6" stroke-width="2" stroke-linecap="round"/>
+            <rect x="20" y="0" width="20" height="8" rx="2" fill="#9B59B6" opacity="0.6"/>
+            <!-- Ceiling dots representing Gamazine texture -->
+            <circle cx="20" cy="34" r="3" fill="#9B59B6" opacity="0.6"/>
+            <circle cx="30" cy="30" r="4" fill="#9B59B6" opacity="0.5"/>
+            <circle cx="40" cy="35" r="3" fill="#9B59B6" opacity="0.6"/>
+            <circle cx="25" cy="42" r="3" fill="#9B59B6" opacity="0.5"/>
+            <circle cx="36" cy="44" r="4" fill="#9B59B6" opacity="0.5"/>
+            <circle cx="30" cy="50" r="3" fill="#9B59B6" opacity="0.4"/>
+            <circle cx="22" cy="50" r="2" fill="#9B59B6" opacity="0.3"/>
+            <circle cx="38" cy="50" r="2" fill="#9B59B6" opacity="0.3"/>
+          </svg>
+          <div class="service-num">07</div>
+        </div>
+        <h3>Gamazine Ceilings</h3>
+        <p>Professional Gamazine textured ceiling coating. Smooth spray application for that classic popcorn-rock ceiling finish — perfect for homes and offices.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-paintcan">
+          <svg viewBox="0 0 60 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="20" width="44" height="50" rx="4" fill="#E67E22" opacity="0.2"/>
+            <rect x="8" y="20" width="44" height="50" rx="4" stroke="#E67E22" stroke-width="2"/>
+            <rect x="14" y="8" width="32" height="14" rx="3" fill="#E67E22" opacity="0.4"/>
+            <rect x="14" y="8" width="32" height="14" rx="3" stroke="#E67E22" stroke-width="2"/>
+            <path d="M20 8 L20 0 L40 0 L40 8" stroke="#E67E22" stroke-width="2" stroke-linecap="round"/>
+            <rect x="20" y="0" width="20" height="8" rx="2" fill="#E67E22" opacity="0.6"/>
+            <!-- House shape -->
+            <path d="M30 30 L18 44 L42 44 Z" stroke="#E67E22" stroke-width="2" fill="#E67E22" opacity="0.3"/>
+            <rect x="25" y="44" width="10" height="10" stroke="#E67E22" stroke-width="2" fill="none"/>
+          </svg>
+          <div class="service-num">08</div>
+        </div>
+        <h3>Home & Residential</h3>
+        <p>Interior and exterior house painting. From single rooms to full home resprays — clean, professional finish for homeowners across Pretoria North.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-paintcan">
+          <svg viewBox="0 0 60 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="20" width="44" height="50" rx="4" fill="#1ABC9C" opacity="0.2"/>
+            <rect x="8" y="20" width="44" height="50" rx="4" stroke="#1ABC9C" stroke-width="2"/>
+            <rect x="14" y="8" width="32" height="14" rx="3" fill="#1ABC9C" opacity="0.4"/>
+            <rect x="14" y="8" width="32" height="14" rx="3" stroke="#1ABC9C" stroke-width="2"/>
+            <path d="M20 8 L20 0 L40 0 L40 8" stroke="#1ABC9C" stroke-width="2" stroke-linecap="round"/>
+            <rect x="20" y="0" width="20" height="8" rx="2" fill="#1ABC9C" opacity="0.6"/>
+            <!-- Boxes representing supply/hardware -->
+            <rect x="17" y="36" width="12" height="12" rx="1" stroke="#1ABC9C" stroke-width="2" fill="#1ABC9C" opacity="0.3"/>
+            <rect x="31" y="36" width="12" height="12" rx="1" stroke="#1ABC9C" stroke-width="2" fill="#1ABC9C" opacity="0.3"/>
+            <rect x="24" y="48" width="12" height="10" rx="1" stroke="#1ABC9C" stroke-width="2" fill="#1ABC9C" opacity="0.4"/>
+          </svg>
+          <div class="service-num">09</div>
+        </div>
+        <h3>Hardware & Supply</h3>
+        <p>We supply paint to hardware stores, supply firms and workshops. Bulk orders, trade pricing and reliable delivery across Rosslyn, Soshanguve and surrounds.</p>
       </div>
     </div>
   </div>
@@ -1196,6 +1272,76 @@ function handleSubmit(e) {
     camera.updateProjectionMatrix();
   });
 })();
+
+// ─── INTERACTIVE PAINT SPILL SYSTEM ───────────────────────────────
+(function() {
+  const canvas = document.getElementById('paint-canvas');
+  const ctx = canvas.getContext('2d');
+
+  const COLORS = ['#FF3B3B','#3B7BFF','#3BFF8C','#FFD23B','#FF6B3B','#9B3BFF','#3BFFFF','#FF3BFF'];
+  let particles = [];
+  let mouseX = 0, mouseY = 0, lastX = 0, lastY = 0;
+
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  document.addEventListener('mousemove', function(e) {
+    lastX = mouseX; lastY = mouseY;
+    mouseX = e.clientX; mouseY = e.clientY;
+    var dist = Math.hypot(mouseX - lastX, mouseY - lastY);
+    var count = Math.min(Math.floor(dist / 8), 8);
+    for (var i = 0; i < count; i++) {
+      var t = i / count;
+      spawn(lastX + (mouseX - lastX) * t, lastY + (mouseY - lastY) * t, 'trail');
+    }
+  });
+
+  document.addEventListener('click', function(e) { spawnBurst(e.clientX, e.clientY); });
+  document.addEventListener('touchstart', function(e) { var t = e.touches[0]; spawnBurst(t.clientX, t.clientY); }, { passive: true });
+  document.addEventListener('touchmove', function(e) { var t = e.touches[0]; if (Math.random() > 0.5) spawn(t.clientX, t.clientY, 'trail'); }, { passive: true });
+
+  function spawn(x, y, type) {
+    var color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    var size = type === 'burst' ? Math.random() * 18 + 6 : Math.random() * 8 + 2;
+    var life = type === 'burst' ? 1.6 : 1.0;
+    var vx = type === 'burst' ? (Math.random() - 0.5) * 10 : (Math.random() - 0.5) * 2;
+    var vy = type === 'burst' ? (Math.random() - 0.5) * 10 - 2 : (Math.random() - 0.5) * 2;
+    particles.push({ x: x, y: y, vx: vx, vy: vy, size: size, color: color, life: life, maxLife: life, type: type, rotation: Math.random() * 360, rotSpeed: (Math.random() - 0.5) * 8 });
+  }
+
+  function spawnBurst(x, y) {
+    for (var i = 0; i < 18 + Math.floor(Math.random() * 12); i++) spawn(x, y, 'burst');
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy; p.vy += 0.25; p.vx *= 0.97; p.life -= 0.016; p.rotation += p.rotSpeed; p.size *= 0.99;
+      if (p.life <= 0 || p.size < 0.5) { particles.splice(i, 1); continue; }
+      var alpha = Math.max(0, p.life / p.maxLife);
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rotation * Math.PI / 180);
+      ctx.globalAlpha = alpha; ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 8;
+      ctx.beginPath();
+      if (p.type === 'burst') {
+        var sides = 5 + Math.floor(Math.random() * 3);
+        for (var j = 0; j < sides; j++) {
+          var angle = (j / sides) * Math.PI * 2;
+          var r = p.size * (0.6 + Math.random() * 0.4);
+          if (j === 0) ctx.moveTo(Math.cos(angle) * r, Math.sin(angle) * r);
+          else ctx.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
+        }
+        ctx.closePath();
+      } else { ctx.arc(0, 0, p.size, 0, Math.PI * 2); }
+      ctx.fill(); ctx.restore();
+    }
+    if (Math.random() < 0.04) spawn(Math.random() * canvas.width, -10, 'trail');
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
 </script>
+  <canvas id="paint-canvas"></canvas>
 </body>
 </html>
