@@ -30,7 +30,7 @@
       --border: rgba(255,255,255,0.08);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-margin-top: 80px; }
     body {
       background: var(--bg);
       color: var(--white);
@@ -313,6 +313,29 @@
     }
     .area-tag:hover { background: var(--red); color: var(--bg); border-color: var(--red); }
 
+    /* ─── FAQ ────────────────────────────────── */
+    #faq { background: var(--bg); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; background: none; border: none;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 0; gap: 1.5rem;
+      color: var(--white); font-size: 1.05rem;
+      text-align: left; cursor: pointer;
+      font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em;
+    }
+    .faq-question:hover { color: var(--red); }
+    .faq-question svg { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.3s; }
+    .faq-item.open .faq-question svg { transform: rotate(45deg); }
+    .faq-item.open .faq-question { color: var(--red); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer p { padding-bottom: 1.5rem; font-size: 0.95rem; color: var(--muted); line-height: 1.8; }
+
     /* ─── CONTACT ───────────────────────────── */
     #contact { background: var(--surface); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -458,6 +481,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get a Quote</a>
@@ -473,6 +497,7 @@
   <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#gallery" onclick="toggleMenu()">Gallery</a>
   <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
 </div>
 
@@ -789,6 +814,61 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title" style="text-align:center;">Questions & Answers</h2>
+      <p class="section-sub" style="margin:0 auto 3rem;">Everything you need to know before you call.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How much does a colour match cost?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>Call us for a quote — pricing depends on quantity, type of paint, and whether we need to analyse a colour sample. We guarantee competitive rates, typically 20–30% less than sending to an external lab, and we include the on-site service.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How fast can you deliver?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>Call before noon and we'll have your colour ready the same day. Standard jobs are typically delivered within 4 hours of your call. Emergency supply is available for urgent time-critical work.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you work with fleet operators?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>Yes — fleet work is one of our core services. We handle fleet resprays and touch-ups across multiple vehicles, maintaining perfect colour consistency from the first van to the last. We can set up regular scheduled supply for ongoing fleet maintenance.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What areas do you cover?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>We cover Rosslyn, Soshanguve, Pretoria North, Centurion, Mabopane, Garankuwa, Wonderboom, Montana, Akasia, Sinoville and surrounding areas within 50km. Call us to confirm coverage for locations outside this range.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What types of paint do you mix?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>We mix all automotive paint systems including basecoat, solid, metallic, pearl and tri-coat finishes. We also handle industrial coatings including enamel, epoxy and PU. If you need it mixed, we can do it.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What's your colour match guarantee?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>We guarantee 100% colour match accuracy. If you're not satisfied with the match, we re-mix at no additional cost until it's right. We've maintained a 100% satisfaction rate across 500+ jobs.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PAINT DIVIDER -->
 <div class="paint-divider"></div>
 
@@ -915,6 +995,14 @@
     gsap.from('.hero-content > *', { opacity: 0, y: 30, stagger: 0.15, duration: 0.8, ease: 'power3.out', delay: 0.3 });
   }, 2600);
 })();
+
+// ─── FAQ ACCORDION ─────────────────────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
 
 // ─── MOBILE MENU ───────────────────────────────────────────────────
 function toggleMenu() {
