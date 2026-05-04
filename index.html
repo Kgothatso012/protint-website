@@ -90,12 +90,9 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 1.25rem 2rem;
       display: flex; align-items: center; justify-content: space-between;
-      transition: background 0.4s, backdrop-filter 0.4s;
-    }
-    nav.scrolled {
-      background: rgba(10,10,15,0.85);
+      background: rgba(10,10,15,0.95);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .nav-logo {
       font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
@@ -136,7 +133,7 @@
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
-    #hero-canvas { position: absolute; inset: 0; z-index: 0; }
+    #hero-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; width: 100% !important; height: 100% !important; }
     .hero-content {
       position: relative; z-index: 2; text-align: center;
       max-width: 900px; padding: 0 2rem;
@@ -878,7 +875,7 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2025 ProTint Colour Mix. All rights reserved. NHBRC Registered.</div>
+    <div class="footer-copy">© 2026 ProTint Colour Mix. All rights reserved. NHBRC Registered.</div>
   </div>
 </footer>
 
@@ -907,11 +904,6 @@
     gsap.from('.hero-content > *', { opacity: 0, y: 30, stagger: 0.15, duration: 0.8, ease: 'power3.out', delay: 0.3 });
   }, 2600);
 })();
-
-// ─── NAV SCROLL ───────────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
 
 // ─── MOBILE MENU ───────────────────────────────────────────────────
 function toggleMenu() {
@@ -993,12 +985,13 @@ function handleSubmit(e) {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas || !window.THREE) return;
 
+  const hero = document.getElementById('hero');
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  renderer.setSize(hero.clientWidth, hero.clientHeight);
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(50, hero.clientWidth / hero.clientHeight, 0.1, 100);
   camera.position.z = 4;
 
   // Lights
@@ -1095,8 +1088,9 @@ function handleSubmit(e) {
 
   // Resize handler
   window.addEventListener('resize', () => {
-    const w = canvas.clientWidth;
-    const h = canvas.clientHeight;
+    const hero = document.getElementById('hero');
+    const w = hero.clientWidth;
+    const h = hero.clientHeight;
     renderer.setSize(w, h);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
